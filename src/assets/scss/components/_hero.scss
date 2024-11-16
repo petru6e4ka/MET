@@ -171,12 +171,12 @@
 }
 
 .icon-contacts {
+  position: relative;
+
   @include desktop {
     display: flex;
     flex-direction: row-reverse;
   }
-
-  position: relative;
 
   &:first-child &__info {
     max-height: 1px;
