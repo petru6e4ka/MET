@@ -1,0 +1,18 @@
+.footer {
+  min-height: 200px;
+  margin-top: 30px;
+  background-image: url("../images/footer-mobile-3.jpg");
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+  @include tablet {
+    min-height: 360px;
+    background-image: url("../images/footer-tablet-2.jpg");
+  }
+
+  @include desktop {
+    background-image: url("../images/footer-desktop-1.jpg");
+  }
+}

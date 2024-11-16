@@ -1,0 +1,281 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 25px 20px;
+  margin-bottom: 50px;
+
+  background-image: url("../images/hero-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  overflow: hidden;
+
+  @include tablet {
+    margin-bottom: 70px;
+    padding: 48px 72px;
+    background-image: url("../images/hero-tablet.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+  }
+
+  @include desktop {
+    padding: 48px 118px;
+    background-image: url("../images/hero-desktop.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+  }
+}
+
+.header {
+  position: relative;
+  z-index: 100;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__content {
+    margin-top: 19vh;
+    text-align: center;
+
+    @include tablet {
+      margin-top: 15vh;
+    }
+
+    @include desktop {
+      margin-top: 9vh;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+.logo {
+  width: 64px;
+  height: 46px;
+
+  @include tablet {
+    width: 87px;
+    height: 65px;
+  }
+}
+
+.icons {
+  &__icon {
+    width: 24px;
+    height: 24px;
+
+    @include tablet {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  @include tablet {
+    gap: 55px;
+  }
+
+  @include desktop {
+    gap: 60px;
+
+    .icon-phone {
+      display: none;
+    }
+  }
+}
+
+.icon-menu {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+
+  background: transparent;
+  border: none;
+  outline: none;
+
+  &__line {
+    display: block;
+    height: 2px;
+    width: 18px;
+
+    background-color: $white;
+    border-radius: 6px;
+    opacity: 1;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      position: absolute;
+    }
+
+    @include tablet {
+      width: 25px;
+    }
+  }
+
+  &:hover {
+    .icon-menu__line:nth-child(1) {
+      width: 12px;
+    }
+
+    .icon-menu__line:nth-child(4) {
+      width: 9px;
+    }
+  }
+
+  &.open span:nth-child(1) {
+    top: 14px;
+    width: 0%;
+    left: 50%;
+  }
+
+  &.open span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+
+  &.open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  &.open span:nth-child(4) {
+    top: 10px;
+    width: 0%;
+    left: 50%;
+  }
+
+  &.open:hover {
+    .icon-menu__line:nth-child(1) {
+      width: 0;
+    }
+
+    .icon-menu__line:nth-child(4) {
+      width: 0;
+    }
+  }
+}
+
+.icon-contacts {
+  @include desktop {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  position: relative;
+
+  &:first-child &__info {
+    max-height: 1px;
+  }
+
+  &:first-child:hover &__info {
+    max-height: 150px;
+  }
+
+  &__info {
+    position: absolute;
+    right: 48px;
+    top: -40px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: right;
+    line-height: 160%;
+
+    transition: 0.3s ease-in-out all;
+    overflow: hidden;
+
+    &-link,
+    &-title {
+      display: block;
+      margin-bottom: 3px;
+      color: $white;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    &-link {
+      margin-bottom: 6px;
+      transition: opacity 0.3s ease-in-out;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.trigger-call {
+  position: relative;
+  transform-origin: 75% 25%;
+  animation: call 1s cubic-bezier(0.36, 0.07, 0.57, 0.99);
+  animation-delay: 0.5s;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    z-index: 10;
+    background: $white;
+    transform: translate(-50%, -50%);
+    animation: blow 0.4s ease-in-out;
+    animation-delay: 0.5s;
+  }
+
+  &:hover {
+    animation: none;
+  }
+
+  &:hover::after {
+    animation: none;
+  }
+}
+
+.image-video {
+  position: absolute;
+
+  height: 100vh;
+  width: 100vw;
+
+  background-image: url("../images/hero-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+
+  inset: 0;
+  opacity: 0;
+  scale: 1.2;
+  animation: kenburns 30s linear infinite;
+
+  @include tablet {
+    background-image: url("../images/hero-tablet.jpg");
+  }
+
+  @include desktop {
+    background-image: url("../images/hero-desktop.jpg");
+  }
+
+  & + .header .header__content {
+    text-shadow: 0 0 10px $dark;
+  }
+}

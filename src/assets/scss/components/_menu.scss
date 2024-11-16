@@ -1,0 +1,170 @@
+.menu {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+
+  background: rgba(0, 0, 0, 0.75);
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+  z-index: 200;
+  opacity: 1;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+
+    .menu__wrapper {
+      transform: translateY(100%);
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+
+    background-color: $main-accent;
+    transform: translateY(0);
+    transition: transform 0.5s ease;
+    transition-delay: 0.2s;
+  }
+
+  &__header {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 25px 20px;
+
+    color: $white;
+    text-transform: uppercase;
+    background-color: $main-accent;
+
+    @include tablet {
+      padding: 48px 72px;
+    }
+
+    @include desktop {
+      padding: 48px 118px;
+    }
+  }
+
+  &__content {
+    padding: 15px 20px;
+    overflow-y: auto;
+
+    @include tablet {
+      padding: 15px 72px;
+    }
+
+    @include desktop {
+      padding: 48px 118px;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    display: inline-block;
+    margin-bottom: 32px;
+
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    background-image: linear-gradient(to right, $main-accent-light, $white 50%, $white 50%);
+    background-size: 200% 100%;
+    background-position: -100%;
+
+    transition: all 0.3s ease-in-out;
+
+    &::before {
+      content: "";
+      background: $white;
+      display: block;
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      background-position: 0;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+
+    &-contact {
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+      margin-bottom: 8px;
+
+      font-weight: 700;
+      line-height: 170%;
+      color: $white;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    &-contact--last {
+      padding-top: 2px;
+      font-size: 15px;
+    }
+
+    &-contact:hover .menu__contacts-number::before {
+      width: 100%;
+    }
+
+    &-number {
+      position: relative;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    &-number::before {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      display: block;
+      width: 0%;
+      height: 1px;
+      background: $white;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &-number:hover::before {
+      width: 100%;
+    }
+  }
+}

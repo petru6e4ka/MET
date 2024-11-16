@@ -1,0 +1,145 @@
+@use "scss-reset/reset";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Cinzel", serif;
+}
+
+textarea {
+  resize: none;
+}
+
+.h1,
+.h2,
+.h3 {
+  font-weight: 700;
+}
+
+.h1 {
+  font-size: 40px;
+  line-height: 105%;
+  color: $white;
+
+  @include tablet {
+    font-size: 60px;
+  }
+
+  @include desktop {
+    font-size: 77px;
+  }
+}
+
+.h2 {
+  font-size: 30px;
+  color: $dark;
+  line-height: 115%;
+
+  @include tablet {
+    font-size: 46px;
+    line-height: 105%;
+  }
+
+  @include desktop {
+    font-size: 46px;
+    line-height: 115%;
+  }
+}
+
+.h3 {
+  font-size: 24px;
+
+  @include desktop {
+    line-height: 110%;
+  }
+}
+
+.h4 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.p {
+  color: $dark;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.button {
+  @include btn;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 20px;
+  min-width: 320px;
+
+  @include tablet {
+    max-width: 744px;
+    padding: 70px 72px;
+  }
+
+  @include desktop {
+    max-width: 1260px;
+    padding: 70px 120px;
+  }
+}
+
+/* Change Autocomplete styles in Chrome */
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  border: 1px solid $bg;
+  -webkit-text-fill-color: $dark;
+  box-shadow: 0 0 0 1000px $bg inset;
+  transition: all ease-in-out 0.3s;
+}
+
+input:-webkit-autofill:hover,
+textarea:-webkit-autofill:hover {
+  border: 1px solid $border;
+  box-shadow: 0 0 0 1000px $bg inset;
+}
+
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus {
+  border: 1px solid $dark;
+  box-shadow: 0 0 0 1000px $bg inset;
+}
+
+.desktop {
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.no-tablet {
+  display: block;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.section--animation {
+  opacity: 0;
+  animation-duration: 0.65s;
+  animation-fill-mode: both;
+
+  .section--active & {
+    animation-name: fadeInUp;
+  }
+}

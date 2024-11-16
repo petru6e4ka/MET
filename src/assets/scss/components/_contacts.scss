@@ -1,0 +1,110 @@
+.contacts {
+  &__header {
+    margin-bottom: 48px;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__info-item {
+    margin-bottom: 50px;
+  }
+
+  &__info-title {
+    margin-bottom: 22px;
+  }
+
+  .adress__link {
+    display: block;
+    margin-bottom: 16px;
+    text-decoration: none;
+    color: $dark;
+    font-size: 15px;
+    font-weight: 700;
+    transition: color ease-in-out 0.3s;
+
+    &:hover {
+      color: $main-accent;
+    }
+  }
+
+  .adress__title {
+    display: block;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__input {
+    padding: 12px 11px;
+    border: 1px solid transparent;
+    background: $bg;
+    color: $dark;
+    transition: all ease-in-out 0.3s;
+
+    &:hover {
+      border: 1px solid $border;
+    }
+
+    &:focus {
+      border: 1px solid $dark;
+    }
+  }
+
+  &__button {
+    margin: 20px 0;
+  }
+
+  @include tablet {
+    &__header {
+      margin-bottom: 52px;
+    }
+
+    &__content {
+      display: flex;
+      justify-content: space-between;
+      gap: 23px;
+    }
+
+    &__info {
+      flex: 1;
+    }
+
+    &__form {
+      flex: 1;
+    }
+
+    &__info-item {
+      margin-bottom: 55px;
+    }
+  }
+
+  @include desktop {
+    &__header {
+      margin-bottom: 45px;
+    }
+
+    &__content {
+      gap: 65px;
+    }
+
+    &__info {
+      display: flex;
+      gap: 75px;
+    }
+
+    .container {
+      padding-top: 20px;
+    }
+
+    &__form {
+      flex: 0.75;
+    }
+  }
+}

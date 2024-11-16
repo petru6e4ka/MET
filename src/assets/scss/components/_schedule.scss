@@ -1,0 +1,96 @@
+.schedule {
+  position: relative;
+  z-index: 200;
+  margin-top: 50px;
+  box-shadow: 0 50px 0 $white;
+
+  @include tablet {
+    margin-top: 70px;
+    box-shadow: 0 70px 0 $white;
+  }
+
+  &__header {
+    margin-bottom: 28px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__subtitle {
+    color: $main-accent;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 140%;
+  }
+
+  &__text:last-child {
+    padding-top: 10px;
+    line-height: 150%;
+
+    .schedule__main-text {
+      display: block;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__main-text {
+    display: inline-block;
+    min-width: 42%;
+    font-weight: 700;
+  }
+
+  &__item-title {
+    margin-bottom: 8px;
+  }
+
+  @include tablet {
+    .container {
+      display: flex;
+    }
+
+    &__header {
+      flex: 1;
+    }
+
+    &__title,
+    &__subtitle {
+      width: 200px;
+    }
+
+    &__content {
+      flex: 1;
+    }
+  }
+
+  @include desktop {
+    &__header {
+      flex: 0.75;
+    }
+
+    &__title,
+    &__subtitle {
+      width: auto;
+    }
+
+    &__item {
+      gap: 13px;
+    }
+
+    &__text:last-child {
+      padding-top: 8px;
+    }
+
+    &__content {
+      gap: 25px;
+    }
+  }
+}

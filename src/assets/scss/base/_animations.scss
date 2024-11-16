@@ -1,0 +1,76 @@
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+@keyframes blow {
+  0% {
+    width: 1px;
+    height: 1px;
+    opacity: 0.5;
+  }
+
+  100% {
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+}
+
+@keyframes call {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  15% {
+    transform: rotate(-60deg);
+  }
+
+  30% {
+    transform: rotate(15deg);
+  }
+
+  45% {
+    transform: rotate(-45deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-45deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes kenburns {
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+    scale: 1;
+  }
+
+  60% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 55%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}

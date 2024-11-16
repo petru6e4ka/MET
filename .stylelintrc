@@ -1,0 +1,6 @@
+{
+	"extends": "stylelint-config-htmlacademy",
+	"rules": {
+		"no-unknown-custom-properties": null
+	}
+}
